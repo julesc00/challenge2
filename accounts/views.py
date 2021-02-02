@@ -28,10 +28,9 @@ def register_page(request):
 
             user_email = form.cleaned_data.get("email")
             user_email = str(user_email)
-            print(user_email)
+
             saved_password = form.cleaned_data.get("password1")
             saved_password = str(saved_password)
-            print(saved_password)
 
             user.save()
             #Prepare email
