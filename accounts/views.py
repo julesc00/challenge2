@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import login_required
 from decouple import config
 import emails
 
-
 from .models import Usuario, LoginLog
 from .forms import CreateUserForm
 from .decorators import unauthenticated_user, allowed_users

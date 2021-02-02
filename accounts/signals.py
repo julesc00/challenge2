@@ -26,8 +26,6 @@ post_save.connect(user_profile, sender=User)
 @receiver(user_logged_in)
 def log_user_login(sender, request, user, **kwargs):
     """Link user logs to its user model."""
-    print(f"User {user.username} logged in on {user.last_login}")
-
     log = user.last_login
 
     LoginLog.objects.create(
