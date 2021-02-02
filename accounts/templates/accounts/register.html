@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <section>
+    <section id="register-section">
         <div class="row">
             <div class="container">
                 <div class="row">
@@ -38,16 +38,16 @@
                                             </div>
                                             <input
                                                     type="submit"
-                                                    class="btn btn-block indigo darken-4"
+                                                    class="btn btn-block indigo darken-4 amber-text text-darken-2"
                                                     value="Registrar"
                                                     style="width: 100%; border-radius: 20px"
                                             >
                                         </form>
                                         <div class="row">
-                                        <span style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
+                                        <p style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
                                             ¿Ya estás registrado?
                                             <a href="{% url 'accounts:login-page' %}">Login</a>
-                                        </span>
+                                        </p>
                                         </div>
                                     </div>
                                 </div>

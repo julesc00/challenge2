@@ -8,6 +8,8 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.core.mail import send_mail
+
+from decouple import config
 import emails
 
 
@@ -38,18 +40,18 @@ def register_page(request):
             message = emails.html(
                 html=f"<h4>Contraseña: <strong>{saved_password}</strong></p></h4>",
                 subject="Enviado desde Challenge App",
-                mail_from="julesc003@gmail.com"
+                mail_from=config("EMAIL_HOST_USER")
             )
             try:
                 # Send the email
                 r = message.send(
-                    to="julesc003@gmail.com",
+                    to=user_email,
                     smtp={
-                        "host": "smtp.gmail.com",
+                        "host": config("EMAIL_HOST"),
                         "port": 587,
                         "timeout": 5,
-                        "user": "julesc003@gmail.com",
-                        "password": "gbxisrodikjuihxa",
+                        "user": config("EMAIL_HOST_USER"),
+                        "password": config("EMAIL_HOST_PASSWORD"),
                         "tls": True,
                     },
                 )

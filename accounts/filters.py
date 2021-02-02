@@ -13,3 +13,5 @@ class LogFilter(django_filters.FilterSet):
         fields = "__all__"
         exclude = ["owner", "login_log", "date_created"]
 
+
+
