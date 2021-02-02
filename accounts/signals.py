@@ -29,6 +29,7 @@ def log_user_login(sender, request, user, **kwargs):
     log = user.last_login
 
     LoginLog.objects.create(
+        owner=request.user,
         login_log=log
     )
 

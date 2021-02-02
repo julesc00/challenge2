@@ -95,7 +95,7 @@ def login_page(request):
 @allowed_users(allowed_roles=["usuarios"])
 def user_page(request):
     usuario = Usuario.objects.all()
-    logs = LoginLog.objects.filter(owner=request.user)
+    logs = LoginLog.objects.filter(owner__usuario=request.user.usuario)
 
     my_filter = LogFilter(request.GET, queryset=logs)
     logs = my_filter.qs
