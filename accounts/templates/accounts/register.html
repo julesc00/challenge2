@@ -2,50 +2,53 @@
 {% load static %}
 
 {% block content %}
-<section>
-    <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col s8 offset-s2">
-                    <div class="card indigo lighten-4" style="border-radius: 15px">
-                        <div class="card-content">
-                            <h4 class="center-align indigo-text text-darken-4">Registro</h4>
-                            <div class="row">
-                                <div class="col s12">
-                                    <form action="" method="POST">
-                                        {% csrf_token %}
-                                        <div class="input-field col s6">
-                                            <i class="indigo-text text-darken-4 material-icons prefix">account_circle</i>
-                                            {{ form.username }}
-                                            <label for="username" id="username">Usuario</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <i class="indigo-text text-darken-4 material-icons prefix">email</i>
-                                            {{ form.email }}
-                                            <label for="email" id="email">E-mail</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <i class="indigo-text text-darken-4 material-icons prefix">lock</i>
-                                            {{ form.password1 }}
-                                            <label for="password1" id="password1">Escribir contraseña</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <i class="indigo-text text-darken-4 material-icons prefix">lock</i>
-                                            {{ form.password2 }}
-                                            <label for="password2" id="password2">Confirmar contraseña</label>
-                                        </div>
-                                        <input
-                                                type="submit"
-                                                class="btn btn-block indigo darken-4"
-                                                value="Registrar"
-                                                style="width: 100%; border-radius: 20px"
-                                        >
-                                    </form>
-                                    <div class="row">
+    <section>
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <div class="card indigo lighten-4" style="border-radius: 15px">
+                            <div class="card-content">
+                                <h4 class="center-align indigo-text text-darken-4">Registro</h4>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <form action="" method="POST">
+                                            {% csrf_token %}
+                                            <div class="input-field col s6">
+                                                <i class="indigo-text text-darken-4 material-icons prefix">
+                                                    account_circle
+                                                </i>
+                                                {{ form.username }}
+                                                <label for="username" id="username">Usuario</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <i class="indigo-text text-darken-4 material-icons prefix">email</i>
+                                                {{ form.email }}
+                                                <label for="email" id="email">E-mail</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <i class="indigo-text text-darken-4 material-icons prefix">lock</i>
+                                                {{ form.password1 }}
+                                                <label for="password1" id="password1">Escribir contraseña</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <i class="indigo-text text-darken-4 material-icons prefix">lock</i>
+                                                {{ form.password2 }}
+                                                <label for="password2" id="password2">Confirmar contraseña</label>
+                                            </div>
+                                            <input
+                                                    type="submit"
+                                                    class="btn btn-block indigo darken-4"
+                                                    value="Registrar"
+                                                    style="width: 100%; border-radius: 20px"
+                                            >
+                                        </form>
+                                        <div class="row">
                                         <span style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
                                             ¿Ya estás registrado?
                                             <a href="{% url 'accounts:login-page' %}">Login</a>
                                         </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -54,6 +57,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}

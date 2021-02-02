@@ -2,48 +2,52 @@
 {% load static %}
 
 {% block content %}
-<section id="login-section">
-    <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col s8 offset-s2">
-                    <div class="card indigo lighten-4" style="border-radius: 15px">
-                        <div class="card-content">
-                            <h4 class="center-align indigo-text text-darken-4">Ingresar</h4>
-                            <div class="row">
-                                <div class="col s12">
-                                    <form action="" method="POST">
-                                        {% csrf_token %}
-                                        <div class="input-field col s12">
-                                            <i class="indigo-text text-darken-4 material-icons prefix">account_circle</i>
-                                            {{ form.username }}
-                                            <label for="username" id="username">Usuario</label>
+    <section id="login-section">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <div class="card indigo lighten-4" style="border-radius: 15px">
+                            <div class="card-content">
+                                <h4 class="center-align indigo-text text-darken-4">Ingresar</h4>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <form action="" method="POST">
+                                            {% csrf_token %}
+                                            <div class="input-field col s12">
+                                                <i
+                                                        class="indigo-text text-darken-4 material-icons prefix">
+                                                    account_circle
+                                                </i>
+                                                {{ form.username }}
+                                                <label for="username" id="username">Usuario</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <i class="indigo-text text-darken-4 material-icons prefix">lock</i>
+                                                {{ form.password }}
+                                                <label for="password" id="password">Escribir contraseña</label>
+                                            </div>
+                                            <input
+                                                    type="submit"
+                                                    class="btn btn-block indigo darken-4"
+                                                    value="Ingresar"
+                                                    style="width: 100%; border-radius: 20px"
+                                            >
+
+                                        </form>
+                                        <div class="row" style="display: flex; flex-direction: column ">
+                                            <div style="margin-top: 20px; margin-bottom: 20px" class="divider"></div>
+
+                                            <p style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
+                                                ¿No estás registrado aún?
+                                                <a href="{% url 'accounts:register-page' %}">Registrar</a>
+                                            </p>
+                                            <p style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
+                                                ¿Olvidaste tu contraseña?
+                                                <a href="{% url 'password_reset' %}">Resetear Contraseña</a>
+                                            </p>
+
                                         </div>
-                                        <div class="input-field col s12">
-                                            <i class="indigo-text text-darken-4 material-icons prefix">lock</i>
-                                            {{ form.password }}
-                                            <label for="password" id="password">Escribir contraseña</label>
-                                        </div>
-                                        <input
-                                                type="submit"
-                                                class="btn btn-block indigo darken-4"
-                                                value="Ingresar"
-                                                style="width: 100%; border-radius: 20px"
-                                        >
-
-                                    </form>
-                                    <div class="row" style="display: flex; flex-direction: column ">
-                                        <div style="margin-top: 20px; margin-bottom: 20px" class="divider"></div>
-
-                                        <p style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
-                                            ¿No estás registrado aún?
-                                            <a href="{% url 'accounts:register-page' %}">Registrar</a>
-                                        </p>
-                                        <p style="margin-top: 15px" class="indigo-text text-darken-4 center-align">
-                                            ¿Olvidaste tu contraseña?
-                                            <a href="{% url 'password_reset' %}">Resetear Contraseña</a>
-                                        </p>
-
                                     </div>
                                 </div>
                             </div>
@@ -52,6 +56,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
