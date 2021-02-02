@@ -1,0 +1,15 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <section>
+        <nav style="background-color: #14213D;">
+            <div style="margin: auto 20px" class="nav-wrapper">
+                <a href="#" class="brand-logo amber-text text-darken-2">Challenge App</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="white-text" href="{% url 'accounts:logout' %}">Salir</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+{% endblock %}

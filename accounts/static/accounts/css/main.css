@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #e5e5e5;
+}
+
+
+
+nav ul li:hover {
+    background-color: #e5e5e5;
+}
+

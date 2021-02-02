@@ -1,0 +1,61 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% include "accounts/navbar.html" %}
+    <section id="main-section">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h3 class="indigo-text text-darken-4">Bienvenido <span>{{ request.user|title }}</span></h3>
+                        <div class="divider"></div>
+                        <div style="margin-top: 20px; margin-bottom: 20px; display: flex; flex-direction: column">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="card" style="border-radius: 15px">
+                                        <div class="card-content">
+                                            <form action="" method="GET">
+                                                {% csrf_token %}
+                                                <div class="input-field col s12">
+                                                    <div class="input-field col s12">
+
+                                                        {{ my_filter.form.as_p }}
+                                                    </div>
+                                                </div>
+                                                <button style=" width: 100%; border-radius: 15px" type="submit"
+                                                        class="btn btn-block amber darken-3 center-align">
+                                                    Buscar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <table class="striped">
+                            <thead>
+                            <tr>
+                                <th>Logs de Acesso</th>
+                                <th>Fecha</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for log in logs %}
+                                <tr>
+                                    <td>{{ log.owner }}</td>
+                                    <td>{{ log.date_created }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include "accounts/footer.html" %}
+{% endblock %}
