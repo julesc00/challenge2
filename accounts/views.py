@@ -6,8 +6,6 @@ from django.core.mail import BadHeaderError
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
-from django.core.mail import send_mail
 
 from decouple import config
 import emails
@@ -21,6 +19,7 @@ from .filters import LogFilter
 
 @unauthenticated_user
 def register_page(request):
+    """Register a new user and send them a confirmation email with password."""
     form = CreateUserForm()
 
     if request.method == "POST":
@@ -94,6 +93,7 @@ def login_page(request):
 @login_required(login_url="accounts:login-page")
 @allowed_users(allowed_roles=["usuarios"])
 def user_page(request):
+    """Show user dashboard and his/her login logs."""
     usuario = Usuario.objects.all()
     logs = LoginLog.objects.filter(owner__usuario=request.user.usuario)
 
@@ -111,5 +111,6 @@ def user_page(request):
 
 
 def logout_user(request):
+    """log out a user."""
     logout(request)
     return redirect("accounts:login-page")

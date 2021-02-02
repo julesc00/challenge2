@@ -8,6 +8,7 @@ from .models import Usuario, LoginLog
 
 
 def user_profile(sender, instance, created, **kwargs):
+    """Link user profile to its user."""
     if created:
         group = Group.objects.get(name="usuarios")
         instance.groups.add(group)
@@ -24,6 +25,7 @@ post_save.connect(user_profile, sender=User)
 
 @receiver(user_logged_in)
 def log_user_login(sender, request, user, **kwargs):
+    """Link user logs to its user model."""
     print(f"User {user.username} logged in on {user.last_login}")
 
     log = user.last_login
